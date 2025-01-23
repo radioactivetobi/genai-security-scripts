@@ -13,13 +13,19 @@ on:
 jobs:
   protect-branches:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    
     steps:
       - uses: actions/checkout@v4
       
       - name: Run Branch Protection
         uses: radioactivetobi/github-branch-protection@main
+        env:
+          BRANCH_PROTECTION_ACTION: ${{ secrets.BRANCH_PROTECTION_ACTION }}
         with:
           github_token: ${{ secrets.BRANCH_PROTECTION_ACTION }}
           github_owner: ${{ github.repository_owner }}
-          repos: genai-security-scripts
+          repos: "genai-security-scripts geo-recon Simplehackingscripts"
           verify_only: ${{ github.event.inputs.verify_only }}
