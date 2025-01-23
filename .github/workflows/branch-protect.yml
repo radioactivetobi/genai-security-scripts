@@ -2,7 +2,7 @@ name: Branch Protection Check
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Run weekly on Monday
+    - cron: '0 0 * * 1'  # Weekly on Monday
   workflow_dispatch:
     inputs:
       verify_only:
@@ -16,10 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Run branch protection
+      - name: Run Branch Protection
         uses: radioactivetobi/github-branch-protection@main
         with:
-          github_token: ${{ secrets.BRANCH_PROTECTION_ACTION}}
+          github_token: ${{ secrets.BRANCH_PROTECTION_ACTION }}
           github_owner: ${{ github.repository_owner }}
-          repos: 'genai-security-scripts geo-recon Simplehackingscripts'
+          repos: genai-security-scripts
           verify_only: ${{ github.event.inputs.verify_only }}
