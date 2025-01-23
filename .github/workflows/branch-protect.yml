@@ -27,5 +27,5 @@ jobs:
         with:
           github_token: ${{ secrets.BRANCH_PROTECTION_ACTION }}
           github_owner: ${{ github.repository_owner }}
-          repos: "genai-security-scripts geo-recon Simplehackingscripts"
+          repos: genai-security-scripts geo-recon Simplehackingscripts
           verify_only: ${{ github.event.inputs.verify_only }}
