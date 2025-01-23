@@ -29,3 +29,11 @@ jobs:
           github_owner: ${{ github.repository_owner }}
           repositories: genai-security-scripts geo-recon Simplehackingscripts
           verify_only: ${{ github.event.inputs.verify_only }}
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: branch-protection-report
+          path: reports/
+          retention-days: 30 
