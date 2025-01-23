@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Run Branch Protection
-        uses: radioactivetobi/github-branch-protection@main
+        uses: radioactivetobi/github-branch-protection@develop
         env:
           BRANCH_PROTECTION_ACTION: ${{ secrets.BRANCH_PROTECTION_ACTION }}
         with:
